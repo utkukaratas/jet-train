@@ -21,7 +21,7 @@ private fun pipeline() = Pipeline.create().apply {
     val service = if (System.getProperty("mock") != null) mockService()
     else remoteService(URL, System.getProperty("token"))
     drawFrom(service)
-        .withTimestamps(TimestampExtractor(), 200)
+///        .withTimestamps(TimestampExtractor(), 200)
         .flatMap(SplitPayload())
         .mapUsingContext(
             ContextFactory.withCreateFn(ContextCreator()),
